@@ -1,0 +1,52 @@
+<template>
+  <div
+    class="slds-card slds-p-bottom_medium"
+    onclick={show}
+    onmouseleave={hide}
+  >
+    <div class="slds-form-element">
+      <div class="slds-form-element__control">
+        <div class="multi-select">
+          <p>Selected options:</p>
+          <template for:each={selectedOptions} for:item="option">
+            <lightning-pill
+              label={option.label}
+              data-option={option.value}
+              onremove={removeSelectedOption}
+              key={option.value}
+            ></lightning-pill>
+          </template>
+        </div>
+
+        <div
+          if:true={open}
+          class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+          role="listbox"
+        >
+          <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+            <template for:each={remainingOptions} for:item="option">
+              <li
+                class="slds-listbox__item"
+                role="presentation"
+                data-value={option.value}
+                onclick={addSelectedOption}
+                key={option.value}
+              >
+                <div
+                  class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                  role="option"
+                >
+                  <span class="slds-media__body">
+                    <span class="slds-truncate" title={option.label}>
+                      {option.label}
+                    </span>
+                  </span>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

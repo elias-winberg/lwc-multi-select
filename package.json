@@ -1,0 +1,14 @@
+{
+  "name": "lightning-multi-select",
+  "description": "A multi select component for Salesforce Lightning",
+  "license": "MIT",
+  "version": "1.0.0",
+  "author": "Elias Winberg",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-apex": "^2.2.2"
+  },
+  "scripts": {
+    "format": "prettier --write ."
+  }
+}
